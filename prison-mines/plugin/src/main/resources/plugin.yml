@@ -1,0 +1,18 @@
+name: PrisonMines
+version: ${version}
+main: io.prisonmines.plugin.PrisonMinesPlugin
+api-version: '1.20'
+depend: [packetevents]
+libraries:
+  - org.jetbrains.kotlin:kotlin-stdlib:2.0.21
+commands:
+  pmine:
+    description: Prison mine tools
+    usage: /pmine <reset|info|reload|enchant>
+permissions:
+  prisonmines.reset:
+    default: true
+  prisonmines.admin:
+    default: op
+  prisonmines.bypass:
+    default: op

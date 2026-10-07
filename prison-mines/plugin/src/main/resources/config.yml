@@ -1,0 +1,29 @@
+settings:
+  reach: 6.0                  # max eye -> block distance accepted for a dig
+  max-blocks-per-break: 2048  # hard cap per break, enchants included
+  max-breaks-per-tick: 8      # per player
+  resend-chunks-per-tick: 8   # global budget for RESHUFFLE resets
+  break-effect-cap: 6         # break particles/sounds shown for enchant-broken blocks
+  flight-guard: true          # see README: required because the real world is air inside the mine
+  block-mob-spawns: true
+  pvp-in-safe-area: false
+  teleport-on-reset: true     # move players standing inside the mine to its spawn on reset
+  messages:
+    reset: "&7Your mine has been reset."
+
+mines:
+  starter:
+    world: world
+    mine: { min: [0, 60, 0], max: [31, 89, 31] }   # the only breakable (virtual) cuboid
+    safe-margin: 6                                  # protected ring around it; or give `safe: {min, max}`
+    spawn: [15.5, 92.0, 15.5]
+    reset:
+      mode: reshuffle      # reshuffle = new ore layout (paced); restore = same layout, cheapest
+      threshold: 0.75      # auto-reset at 75% mined (0 = off)
+      interval-seconds: 0  # timed reset (0 = off)
+    blocks:
+      - { block: minecraft:stone,        weight: 60, drop: minecraft:cobblestone }
+      - { block: minecraft:coal_ore,     weight: 20, drop: minecraft:coal }
+      - { block: minecraft:iron_ore,     weight: 12, drop: minecraft:raw_iron }
+      - { block: minecraft:diamond_ore,  weight: 5,  drop: minecraft:diamond }
+      - { block: minecraft:emerald_ore,  weight: 3,  drop: minecraft:emerald }
